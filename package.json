@@ -13,11 +13,13 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "express-graphql": "^0.7.1",
-    "graphql": "^14.0.2"
+    "graphql": "^14.0.2",
+    "mongoose": "^5.3.15",
+    "soap": "^0.26.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.6"

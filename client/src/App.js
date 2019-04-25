@@ -1,32 +1,31 @@
 import React, { Component } from 'react';
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Launches from './components/Launches';
-import Launch from './components/Launch';
+import Login from './components/Login';
+import Books from './components/Books';
+import Book from './components/Book';
+import Dashboard from './components/Dashboard';
+import ChangeRequest from './components/ChangeRequest';
+import ChangeRequests from './components/ChangeRequests';
+import ChangeRequestDetail from './components/ChangeRequestDetail';
 import './App.css';
-import logo from './logo.png';
 
-const client = new ApolloClient({
-  uri: '/graphql'
-});
 
 class App extends Component {
   render() {
     return (
-      <ApolloProvider client={client}>
+      
         <Router>
           <div className="container">
-            <img
-              src={logo}
-              alt="SpaceX"
-              style={{ width: 300, display: 'block', margin: 'auto' }}
-            />
-            <Route exact path="/" component={Launches} />
-            <Route exact path="/launch/:flight_number" component={Launch} />
+            <Route exact path="/" component={Login} />
+            <Route exact path="/books" component={Books} />
+            <Route exact path="/book/:id_param" component={Book} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/changerequest/:id_param" component={ChangeRequest} />
+            <Route exact path="/changerequests" component={ChangeRequests} />
+            <Route exact path="/changerequestdetail/:id_param" component={ChangeRequestDetail} />
+            {<Route exact path="/mychangerequests/:id_param" component={ChangeRequests} /> }
           </div>
         </Router>
-      </ApolloProvider>
     );
   }
 }
