@@ -1,6 +1,6 @@
-# SpaceX Launch Stats
+# PIS-Library-Project
 
-> React, GraphQL, Apollo app that uses the SpaceX API to display launches
+> React app that uses the WSDL services provided by FIIT STU
 
 ## Quick Start
 
@@ -21,15 +21,13 @@ npm run client
 # Build for production (Builds into server ./public)
 cd client && npm run build
 
-# Graphiql - http://localhost:5000/graphql
 ```
 
 ## App Info
 
 ### Author
 
-Brad Traversy
-[Traversy Media](http://www.traversymedia.com)
+Michal Zajic
 
 ### Version
 
