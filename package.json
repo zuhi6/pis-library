@@ -1,7 +1,7 @@
 {
-  "name": "spacex_launch_stats",
+  "name": "pis-library",
   "version": "1.0.0",
-  "description": "App that lists SpaceX launch missions",
+  "description": "PIS project",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "Brad Traversy",
+  "author": "Michal Zajic",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
