@@ -54,6 +54,7 @@ export class Books extends Component {
             <FormControl
               size="sm"
               type='checkbox'
+              className="checkbox-s"
               value={this.state.status}
               onChange={this.handleChange}
               

@@ -77,3 +77,22 @@ h1 {
 .req-true {
   background-color: white
 }
+.dashboard-btn {
+  font-size:32px;
+  width:400px;
+  box-sizing: border-box;
+  padding:30px
+}
+.dashboard-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60vh
+}
+.checkbox-s {
+  height:3vh;
+  display:inline;
+  width:10%;
+  margin-top:10px
+
+}

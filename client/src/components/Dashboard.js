@@ -18,16 +18,17 @@ class Dashboard extends Component {
         {UserProfile.getRole() === 'user' && 
         <h2 className='controlLabel'>Points: {UserProfile.getPoints()}</h2>
         }
+        <div className="dashboard-buttons">
         <Button
             onClick={() => this.handleClick("books")}
-            className="btn btn-secondary"
+            className="btn btn-secondary dashboard-btn"
           >
             Books
           </Button>
           {UserProfile.getRole() ==='admin' &&
           <Button
             onClick={() => this.handleClick("cr")}
-            className="btn btn-secondary"
+            className="btn btn-secondary dashboard-btn"
           >
             Change Requests
           </Button>
@@ -35,11 +36,12 @@ class Dashboard extends Component {
           {UserProfile.getRole() ==='user' &&
             <Button
             onClick={() => this.handleClick("myCr")}
-            className="btn btn-secondary"
+            className="btn btn-secondary dashboard-btn"
           >
             My Change Requests
           </Button>
           }
+            </div>
       </div>
     )
   }
