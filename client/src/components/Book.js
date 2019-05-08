@@ -10,6 +10,7 @@ export default class Book extends Component {
       book : null,
       id_param : this.props.match.params.id_param,
       authors : null,
+      rating : null
     }
     this.getBook();
     this.getAuthor();
@@ -21,11 +22,21 @@ export default class Book extends Component {
     axios.post('http://localhost:5000/book',{book_id: this.state.id_param}).then(data => {
      
       this.setState({book:data.data.books});
+      this.getRating();
     }) 
   }
   getAuthor = () => {
     axios.post('http://localhost:5000/author',{book_id: this.state.id_param}).then(data => {
       this.setState({authors:data.data.map(item => item.name).join(', ')});
+    })
+  }
+
+  getRating = () => {
+    if(!this.state.book.url){
+      return  
+    }
+    axios.post('http://localhost:5000/getgoodreadrating',{url: this.state.book.url}).then(data => {
+      this.setState({rating: data.data})
     })
   }
   render() {
@@ -60,6 +71,11 @@ export default class Book extends Component {
           <li className="list-group-item">
             Authors: {this.state.authors}
           </li>
+          {this.state.rating && 
+            <li className="list-group-item"> 
+              Goodreads Rating: {this.state.rating}  
+            </li>
+          }
         </ul> 
         <Link to="/books" className="btn btn-secondary">
           Back

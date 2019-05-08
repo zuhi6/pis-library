@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const soap = require('soap');
 const bodyParser = require('body-parser');
-
+const axios = require('axios');
+const convert = require('xml-js');
 
 
 const app = express();
@@ -41,7 +42,7 @@ app.post('/changeRequest', (req, res) => {
       status: "Pending",
       additional_info: req.body.book.additional_info
     }},function(err,result){
-      res.send(200);
+      res.send(201);
     })
     
   })
@@ -173,6 +174,14 @@ app.post('/book', (req, res) => {
       res.send(result);
     });
   });
+})
+
+app.post('/getgoodreadrating', (req, res) => {
+  
+  axios.get(req.body.url).then(data => {
+    result = convert.xml2js(data.data , {compact: true, spaces: 0})
+    res.send(result.GoodreadsResponse.book.average_rating._text);
+  })
 })
 
 
